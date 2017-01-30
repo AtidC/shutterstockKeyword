@@ -25,11 +25,35 @@
 var $j = jQuery.noConflict();
 
 $j(document).ready(function() {
+    CreateStyles(); 
+    
     var a = '';
     $j.each( $j('.product-page-keywords'), function(i, left) {
        $j('a', left).each(function() {
            a+=$j(this).text()+', ';
        });
     });
-    $j('.product-page-keywords').html('<div class="row">' + a + '</div>');
+    $j('.product-page-keywords').html('<div>Keyword here</div><div class="txtKeyword">' + a + '</div>');
 });
+
+function CreateStyles() {
+    var sheet = (function() {
+        var style = document.createElement("style");
+        style.appendChild(document.createTextNode(""));
+        
+        document.head.appendChild(style);
+        return style.sheet;
+    })(); 
+        
+    var txtKeywordStyle = "padding:15px;";
+    addCSSRule(sheet, ".txtKeyword", txtKeywordStyle, 0);
+}
+
+function addCSSRule(sheet, selector, rules, index) {
+	if("insertRule" in sheet) {
+		sheet.insertRule(selector + "{" + rules + "}", index);
+	}
+	else if("addRule" in sheet) {
+		sheet.addRule(selector, rules, index);
+	}
+}
