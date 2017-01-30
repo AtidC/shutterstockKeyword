@@ -6,6 +6,7 @@
 // @author       Satinka
 // @match        https://www.shutterstock.com/image-photo*
 // @match        https://www.shutterstock.com/image-vector*
+// @match        https://www.shutterstock.com/image-illustration*
 // @copyright    2016, Naphong
 // @require      http://code.jquery.com/jquery-latest.min.js
 // @grant        none
@@ -33,7 +34,7 @@ $j(document).ready(function() {
            a+=$j(this).text()+', ';
        });
     });
-    $j('.product-page-keywords').html('<div>Keyword here</div><div class="txtKeyword">' + a + '</div>');
+    $j('.product-page-keywords').html('<div class="titleKeyword">Keyword here</div><div class="txtKeyword">' + a + '</div>');
 });
 
 function CreateStyles() {
