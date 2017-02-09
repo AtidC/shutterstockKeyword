@@ -4,9 +4,9 @@
 // @version      1.0
 // @description  Extract the keyword from Shutter Stock Preview Page
 // @author       Satinka
-// @match        https://www.shutterstock.com*image-photo*
-// @match        https://www.shutterstock.com*image-vector*
-// @match        https://www.shutterstock.com*image-illustration*
+// @match        https://www.shutterstock.com/*image-photo*
+// @match        https://www.shutterstock.com/image-vector*
+// @match        https://www.shutterstock.com/image-illustration*
 // @copyright    2016, Naphong
 // @require      http://code.jquery.com/jquery-latest.min.js
 // @grant        none
@@ -34,7 +34,9 @@ $j(document).ready(function() {
            a+=$j(this).text()+', ';
        });
     });
+    
     $j('.product-page-keywords').html('<div class="titleKeyword">Keyword here</div><div class="txtKeyword">' + a + '</div>');
+    $j('.product-page-keywords').removeClass();
 });
 
 function CreateStyles() {
@@ -46,7 +48,7 @@ function CreateStyles() {
         return style.sheet;
     })(); 
         
-    var txtKeywordStyle = "padding:15px;";
+    var txtKeywordStyle = "padding:5px; margin:15px; border-radius: 25px; border: 2px solid #73AD21;";
     addCSSRule(sheet, ".txtKeyword", txtKeywordStyle, 0);
 }
 
